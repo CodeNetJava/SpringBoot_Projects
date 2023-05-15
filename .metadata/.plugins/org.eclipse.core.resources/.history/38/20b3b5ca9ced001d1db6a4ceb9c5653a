@@ -1,0 +1,37 @@
+package com.sau.core;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.sau.core.service.PaymentService;//inject payment service into the test class
+import com.sau.core.service.PaymentServiceImpl;
+
+import static org.junit.Assert.*;
+
+@RunWith(SpringRunner.class)//by using this annotation we are using SpringRunner instead of using default J-unit runner
+@SpringBootTest //tells spring boot to go and search for annotation @SpringBootApplication 
+                // and create a spring container with the beans
+class CoreApplicationTests {
+	
+	//inject payment service into the test class
+	@Autowired
+	PaymentServiceImpl services;
+
+	@Test  // each test is marked with @test in J-unit
+	       // so when we run this test class, we can use all the beans that are available from the spring container
+	void testDependencyInjection () {
+		assertNotNull(services.getDao());
+	}
+	
+	@Test
+	void calculateSum () {
+		assertEquals(12,services.calculate(7, 5));
+	}
+
+}

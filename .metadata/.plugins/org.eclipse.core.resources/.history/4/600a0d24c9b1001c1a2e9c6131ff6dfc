@@ -1,0 +1,44 @@
+package com.sau.springweb.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sau.springweb.entities.Product;
+import com.sau.springweb.repos.ProductRepository;
+
+@RestController
+public class ProductRestController {
+	@Autowired
+	ProductRepository repo1;
+@RequestMapping(value = "/products/",method=RequestMethod.GET) /* we are mapping getProducts method to the url and http get method*/
+	public List<Product> getProducts(){
+		return repo1.findAll();
+	}
+	
+	// this method will return a single product back by giving id 
+	// id will become a part of url  "/products/{id}"
+@RequestMapping(value = "/products/{id}",method=RequestMethod.GET) // we map the path variable
+	public Product getProduct(@PathVariable("id")int id) {  // we have to bind path variable to the parameter // tells the spring boot that url id is this parameter id
+		return repo1.findById(id).get();
+	}
+
+@RequestMapping(value = "/products/",method=RequestMethod.POST) // we map the path variable
+public Product createProduct(Product product) { 
+	return repo1.save(product);
+}
+
+@RequestMapping(value = "/products/",method=RequestMethod.PUT) // we map the path variable
+public Product updateProduct(Product product) {
+	return repo1.save(product);
+}
+
+@RequestMapping(value = "/products/{id}",method=RequestMethod.DELETE) // we map the path variable
+public void deleteProduct(@PathVariable("id")int id) {  // we have to bind path variable to the parameter // tells the spring boot that url id is this parameter id
+	 repo1.deleteById(id);
+}
+}

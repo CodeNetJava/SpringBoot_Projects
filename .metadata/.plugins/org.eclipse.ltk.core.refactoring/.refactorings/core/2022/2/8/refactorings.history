@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.sau.core.dao.OaymentDAOImpl&apos; to &apos;PaymentDAOImpl&apos;&#x0D;&#x0A;- Original project: &apos;core&apos;&#x0D;&#x0A;- Original element: &apos;com.sau.core.dao.OaymentDAOImpl&apos;&#x0D;&#x0A;- Renamed element: &apos;com.sau.core.dao.PaymentDAOImpl&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;OaymentDAOImpl&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.sau.core.dao{OaymentDAOImpl.java[OaymentDAOImpl" matchStrategy="1" name="PaymentDAOImpl" qualified="false" references="true" similarDeclarations="false" stamp="1645155628341" textual="false" version="1.0"/>
+</session>
